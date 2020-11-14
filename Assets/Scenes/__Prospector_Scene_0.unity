@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa99a364a0aff4a42bd51ef9639f1aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startFaceUp: 0
   suitClub: {fileID: 21300000, guid: f2e3abd22e9ae4d17ab5c0659ff3e024, type: 3}
   suitDiamond: {fileID: 21300000, guid: f8c2745f3b53149c595d8fde43185468, type: 3}
   suitHeart: {fileID: 21300000, guid: 3f3ffa8970b63467cad6ba98725b1c95, type: 3}
@@ -275,12 +276,14 @@ MonoBehaviour:
   - {fileID: -2704611688130657760, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
   - {fileID: -6329860329445972959, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
   - {fileID: 8997811152243715195, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
-  cardBack: {fileID: 0}
-  cardBackGold: {fileID: 0}
-  cardFront: {fileID: 0}
-  cardFrontGold: {fileID: 0}
-  prefabCard: {fileID: 0}
-  prefabSprite: {fileID: 0}
+  cardBack: {fileID: 21300000, guid: a8185ed8d47594bb8a3b8e2d9233f769, type: 3}
+  cardBackGold: {fileID: 21300000, guid: 8ecf4828943064b3a96f6258b54c0f11, type: 3}
+  cardFront: {fileID: 21300000, guid: 873a7658b7ec742228520c7b15510f4d, type: 3}
+  cardFrontGold: {fileID: 21300000, guid: 944dc539459fe4109b973bd4c97f68ee, type: 3}
+  prefabCard: {fileID: 2061468918777975704, guid: 4d3cb31c8e0cc4549a18c3ee6f496744,
+    type: 3}
+  prefabSprite: {fileID: 2053389562009766852, guid: 997a97d59a4a9ed40aedca7ea1f4fd69,
+    type: 3}
   xmlr:
     xmlText: 
   cardNames: []
