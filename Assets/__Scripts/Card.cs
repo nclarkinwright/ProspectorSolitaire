@@ -48,5 +48,5 @@ public class CardDefinition
     // This class stores information for each rank of card
     public string face; // Sprite to use for each face card
     public int rank; // The rank (1-13) of this card
-    public List<Decorator> pips = new List<Decorator>(); // Pips used // a
+    public List<Decorator> pips = new List<Decorator>(); // Pips used
 }

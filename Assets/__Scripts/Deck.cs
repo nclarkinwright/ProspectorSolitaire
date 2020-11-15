@@ -70,7 +70,7 @@ public class Deck : MonoBehaviour
         s += " x=" + xmlr.xml["xml"][0]["decorator"][0].att("x");
         s += " y=" + xmlr.xml["xml"][0]["decorator"][0].att("y");
         s += " scale=" + xmlr.xml["xml"][0]["decorator"][0].att("scale");
-        print(s); // Comment out this line, since we're done with the test
+        //print(s); // Comment out this line, since we're done with the test
 
         // Read decorators for all Cards
         decorators = new List<Decorator>(); // Init the List of Decorators
@@ -132,9 +132,8 @@ public class Deck : MonoBehaviour
             if (xCardDefs[i].HasAtt("face"))
             {
                 cDef.face = xCardDefs[i].att("face");
-
             }
-
+            cardDefs.Add(cDef);
         }
     }
 
@@ -203,8 +202,9 @@ public class Deck : MonoBehaviour
         card.def = GetCardDefinitionByRank(card.rank);
 
         AddDecorators(card);
-        //AddPips(card);
-        //AddFace(card);
+        AddPips(card);
+        AddFace(card);
+        AddBack(card);
 
         return card;
     }
