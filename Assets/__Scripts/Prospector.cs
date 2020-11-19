@@ -41,11 +41,19 @@ public class Prospector : MonoBehaviour
     {
         // Set up the HighScore UI Text
         GameObject go = GameObject.Find("HighScore");
+        int highScore;
         if (go != null)
         {
             highScoreText = go.GetComponent<Text>();
         }
-        int highScore = ScoreManager.HIGH_SCORE;
+        if (PlayerPrefs.HasKey("ProspectorHighScore"))
+        {
+            highScore = PlayerPrefs.GetInt("ProspectorHighScore");
+        }
+        else
+        {
+            highScore = 0;
+        }
         string hScore = "High Score: " + Utils.AddCommasToNumber(highScore);
         go.GetComponent<Text>().text = hScore;
 
@@ -218,7 +226,7 @@ public class Prospector : MonoBehaviour
         cd.faceUp = true;
         // Place it on top of the pile for depth sorting
         cd.SetSortingLayerName(layout.discardPile.layerName);
-        cd.SetSortOrder(-100 + discardPile.Count);
+        cd.SetSortOrder(-200 + discardPile.Count);
     }
 
     // Make cd the new target card
