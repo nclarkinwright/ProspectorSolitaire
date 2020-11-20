@@ -31,4 +31,21 @@ public class CardProspector : Card
         // Also call the base class (Card.cs) version of this method
         base.OnMouseUpAsButton();
     }
+
+    // Make CardProspector a Gold CardProspector
+    public void MakeGoldCard()
+    {
+        // Make card front gold
+        GameObject cpFront = this.transform.Find("Card_Front").gameObject;
+        SpriteRenderer frontSR = cpFront.GetComponent<SpriteRenderer>();
+        frontSR.sprite = Prospector.S.deck.cardFrontGold;
+        
+        // Set card back to gold
+        SpriteRenderer cpBack = this.back.GetComponent<SpriteRenderer>();
+        cpBack.sprite = Prospector.S.deck.cardBackGold;
+        
+        // Return when finished
+        //return (cp);
+    }
+
 }

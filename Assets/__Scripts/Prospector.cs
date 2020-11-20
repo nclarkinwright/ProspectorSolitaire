@@ -174,6 +174,9 @@ public class Prospector : MonoBehaviour
 
         // Set up the Draw pile
         UpdateDrawPile();
+
+        // Spawn gold cards in mine
+        SpawnGoldCards();
     }
 
     // Convert from the layoutID int to the CardProspector with that ID
@@ -467,6 +470,22 @@ public class Prospector : MonoBehaviour
                     fs.reportFinishTo = fsRun.gameObject;
                 }
                 break;
+        }
+    }
+
+    void SpawnGoldCards()
+    {
+        foreach (CardProspector cp in tableau)
+        {
+            // 10% chance to spawn gold card
+            // If roll for spawn is <= 0.1, then make card in tableau gold
+            float spawnRoll = Random.Range(0.0f, 1.0f);
+            if (spawnRoll <= 0.10)
+            {
+                // Make card gold
+                cp.MakeGoldCard();
+            }
+            // Otherwise, do nothing
         }
     }
 
