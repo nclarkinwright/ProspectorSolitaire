@@ -316,7 +316,15 @@ public class Prospector : MonoBehaviour
                 tableau.Remove(cd); // Remove it from the tableau List
                 MoveToTarget(cd); // Make it the target card
                 SetTableauFaces(); // Update tableau card face-ups
-                ScoreManager.EVENT(eScoreEvent.mine);
+                // Check if gold 
+                if (cd.IsGold)
+                {
+                    ScoreManager.EVENT(eScoreEvent.mineGold);
+                }
+                else
+                {
+                    ScoreManager.EVENT(eScoreEvent.mine);
+                }
                 FloatingScoreHandler(eScoreEvent.mine);
                 break;
         }
