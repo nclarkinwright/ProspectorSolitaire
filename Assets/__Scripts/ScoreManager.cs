@@ -71,18 +71,10 @@ public class ScoreManager : MonoBehaviour
             case eScoreEvent.gameWin: // Won the round
             case eScoreEvent.gameLoss: // Lost the round
                 chain = 0; // resets the score chain
-                // Check if gold card was hit in chain
-                if (goldHits > 0)
-                {
-                    score += scoreRun * (int) Mathf.Pow(2, goldHits); // add double of scoreRun to total score
-                    scoreRun = 0; // reset scoreRun
-                    goldHits = 0; // set goldHits back to 0 for next chain
-                }
-                else
-                {
-                    score += scoreRun; // add scoreRun to total score
-                    scoreRun = 0; // reset scoreRun
-                }    
+                // If goldHits = 0, then scoreRun is only multiplied by 1
+                score += scoreRun * (int) Mathf.Pow(2, goldHits);
+                scoreRun = 0; // reset scoreRun
+                goldHits = 0; // reset goldHits 
                 break;
 
             case eScoreEvent.mine: // Remove a mine card
