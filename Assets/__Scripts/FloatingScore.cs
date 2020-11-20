@@ -110,7 +110,7 @@ public class FloatingScore : MonoBehaviour
                     // If there's a callback GameObject
                     // Use SendMessage to call the FSCallback method
                     // with this as the parameter
-                    reportFinishTo.SendMessage("FSCallback", this);
+                    reportFinishTo.SendMessage("FSCallback", this, SendMessageOptions.RequireReceiver);
                     // Now that the message has been sent,
                     // Destroy this gameObject
                     Destroy(gameObject);

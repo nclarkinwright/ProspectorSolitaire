@@ -218,6 +218,14 @@ public class Prospector : MonoBehaviour
     {
         // Set the state of the card to discard
         cd.state = eCardState.discard;
+        
+        // Hack fix for visual glitch
+        // Set cards in discard to inactive
+        foreach (CardProspector cp in discardPile)
+        {
+            cp.gameObject.SetActive(false);
+        }
+        
         discardPile.Add(cd);// Add it to the discardPile List<>
         cd.transform.parent = layoutAnchor; // Update its transform parent
 
@@ -229,7 +237,7 @@ public class Prospector : MonoBehaviour
         cd.faceUp = true;
         // Place it on top of the pile for depth sorting
         cd.SetSortingLayerName(layout.discardPile.layerName);
-        cd.SetSortOrder(-200 + discardPile.Count);
+        cd.SetSortOrder(-100 + discardPile.Count);
     }
 
     // Make cd the new target card
@@ -240,6 +248,13 @@ public class Prospector : MonoBehaviour
         target = cd; // cd is the new target
         cd.state = eCardState.target;
         cd.transform.parent = layoutAnchor;
+
+        // Hack fix for visual glitch
+        // Set cards in discard to inactive
+        foreach (CardProspector cp in discardPile)
+        {
+            cp.gameObject.SetActive(false);
+        }
 
         // Move to the target position
         cd.transform.localPosition = new Vector3(
