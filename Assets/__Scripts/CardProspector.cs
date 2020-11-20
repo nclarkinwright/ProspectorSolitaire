@@ -12,7 +12,7 @@ public enum eCardState
 }
 
 public class CardProspector : Card
-{
+{   
     [Header("Set Dynamicaly: CardProspector")]
     // This is how you use the enum eCardState
     public eCardState state = eCardState.drawpile;
@@ -23,6 +23,8 @@ public class CardProspector : Card
     // The SlotDef class stores information pulled in from the LayoutXML <slot>
     public SlotDef slotDef;
 
+    private bool isGold = false;
+
     // This allows the card to react to being clicked
     public override void OnMouseUpAsButton()
     {
@@ -32,9 +34,20 @@ public class CardProspector : Card
         base.OnMouseUpAsButton();
     }
 
+    public bool IsGold
+    {
+        get
+        {
+            return isGold;
+        }
+    }
+    
     // Make CardProspector a Gold CardProspector
     public void MakeGoldCard()
     {
+        // Set is gold to true
+        isGold = true;
+        
         // Make card front gold
         GameObject cpFront = this.transform.Find("Card_Front").gameObject;
         SpriteRenderer frontSR = cpFront.GetComponent<SpriteRenderer>();
