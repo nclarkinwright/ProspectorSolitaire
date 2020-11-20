@@ -72,6 +72,7 @@ public class ScoreManager : MonoBehaviour
             case eScoreEvent.gameLoss: // Lost the round
                 chain = 0; // resets the score chain
                 // If goldHits = 0, then scoreRun is only multiplied by 1
+                // Multiply scoreRun by 2^number of gold cards
                 score += scoreRun * (int) Mathf.Pow(2, goldHits);
                 scoreRun = 0; // reset scoreRun
                 goldHits = 0; // reset goldHits 
